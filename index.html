@@ -1,4 +1,17 @@
+<?php 
+if(isset($_POST['submit'])){
+    $to = "martin.k6re@gmail.com"; // this is your Email address
+    $from = $_POST['email']; // this is the sender's Email address
+    $name = $_POST['name'];
+    $subject = "Form submission";
+    $message = $name . " " . " wrote the following:" . "\n\n" . $_POST['message'];
 
+    $headers = "From:" . $from;
+    mail($to,$subject,$message,$headers);
+    // You can also use header('Location: thank_you.php'); to redirect to another page.
+    echo "success";
+    }
+?>
 <!DOCTYPE html>
 <html>
 <title>Emla Finance OÜ</title>
@@ -145,7 +158,7 @@
   <div class="w3-half w3-teal w3-container" style="height:700px">
     <div class="w3-padding-64 w3-padding-large">
       <h1>Saada kiri</h1>
-      <form class="w3-container w3-card-2 w3-padding-32 w3-white" action="send_form_email" method="post">
+      <form class="w3-container w3-card-2 w3-padding-32 w3-white" action="" method="post">
         <div class="w3-section">
           <label for="name">Nimi</label>
           <input name="name" class="w3-input" style="width:100%;" type="text" required name="Name">
